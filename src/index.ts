@@ -1,9 +1,12 @@
 import express from "express";
+import morganMiddleware from "./config/morganMiddleware";
+import level from "./lib/environment";
 import Logger from "./lib/logger";
 
-const app = express();
 const PORT = process.env.APP_PORT || 4033;
+const app = express();
 
+app.use(morganMiddleware);
 app.get("/logger", (_, res) => {
   Logger.error("This is an error log");
   Logger.warn("This is a warn log");

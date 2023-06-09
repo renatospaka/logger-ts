@@ -1,4 +1,5 @@
 import winston from "winston";
+import level from "./environment";
 
 const levels = {
   error: 0,
@@ -9,11 +10,11 @@ const levels = {
   debug: 5,
 };
 
-const level = () => {
-  const env = process.env.NODE_ENV || "development";
-  const isDevelopment = env === "development";
-  return isDevelopment ? "debug" : "warn";
-};
+// const level = () => {
+//   const env = process.env.NODE_ENV || "development";
+//   const isDevelopment = env === "development";
+//   return isDevelopment ? "debug" : "warn";
+// };
 
 const colors = {
   error: "red",
@@ -43,8 +44,9 @@ const transports = [
   new winston.transports.File({ filename: "logs/all.log" }),
 ];
 
+const currLevel: "debug" | "warn" = level();
 const Logger = winston.createLogger({
-  level: level(),
+  level: currLevel,
   levels,
   format,
   transports,

@@ -8,6 +8,13 @@
     "dev": "npx nodemon src/index.ts",
     "build": "npx tsc --version && npx tsc -p tsconfig.json"
   },
+  "keywords": [
+    "development",
+    "morgan",
+    "winston",
+    "medium",
+    "backend"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
