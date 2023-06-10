@@ -1,7 +1,6 @@
 import morgan, { StreamOptions } from "morgan";
 import Logger from "../lib/logger";
 import level from "../lib/environment";
-import { loggers } from "winston";
 
 const stream: StreamOptions = {
   write: (msg) => Logger.http(msg),
